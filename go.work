@@ -1,0 +1,13 @@
+go 1.21.3
+
+use (
+	./array-slice-map
+	./control-structures
+	./functions
+	./pointers
+	./project
+	./structs
+	./structs-practice
+	./user_input
+	./variables_and_types
+)
