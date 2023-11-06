@@ -69,8 +69,16 @@ func WriteLogFile(rounds *[]RoundData){
 	file,err := os.Create(exPath + "/gamelog.txt")	
 	if err != nil{
 		fmt.Println("Saving a log file failed. Exiting")
-		return
+		panic(err)
+		
 	}
+
+	defer func ()  {
+		err := file.Close()
+		if err != nil {
+			fmt.Println("Closing the file failed.")
+		}
+	}()
 	for index,value := range *rounds{
 		logEntry := map[string]string {
 			"Round": fmt.Sprint(index + 1),
@@ -89,6 +97,5 @@ func WriteLogFile(rounds *[]RoundData){
 		}
 
 	}
-file.Close()
 fmt.Println("Wrote data to log!")
 }

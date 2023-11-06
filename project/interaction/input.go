@@ -9,16 +9,22 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
+const (
+	PlayerChoiceAttack = iota + 1
+	PlayerChoiceHeal
+	PlayerChoiceSpecialAttack
+)
+
 func GetPlayerChoice(specialAttackIsAvailable bool) string{
 	
 	for {
 		playerChoice,_ := getPlayerInput()
 		switch(playerChoice){
-			case "1":
+			case fmt.Sprint(PlayerChoiceAttack):
 				return "ATTACK"
-			case "2":
+			case fmt.Sprint(PlayerChoiceHeal):
 				return "HEAL"
-			case "3":
+			case fmt.Sprint(PlayerChoiceSpecialAttack):
 				if specialAttackIsAvailable{
 					return "SPECIAL_ATTACK"
 				}

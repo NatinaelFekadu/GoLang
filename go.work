@@ -2,8 +2,13 @@ go 1.21.3
 
 use (
 	./array-slice-map
+	./channel-concurrency-goroutine
 	./control-structures
+	./embedding-interfaces-and-structs
 	./functions
+	./interfaces
+	./more-on-functions
+	./new_and_make
 	./pointers
 	./project
 	./structs
